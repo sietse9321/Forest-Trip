@@ -242,7 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b5c5a360d46360488691a980378f522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 61743773}
+  magazine: 10
+  totalAmmo: 40
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
