@@ -9,9 +9,11 @@ public class Gun : MonoBehaviour
     Animator animator;
     //ints to store numbers
     [SerializeField] int magazine = 10, totalAmmo = 40;
+    float maxDistance = 100f;
+    //transform
+    [SerializeField] Transform shootPoint;
     //bool true or false
     bool canFire = true, isReloading = false;
-    // Start is called before the first frame update
     void Start()
     {
         //gets the animator component from this gameobject
@@ -21,12 +23,15 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+            Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward * maxDistance);
         //if mouse button 0 (left-click) is pressed down do code
         if (Input.GetMouseButtonDown(0))
         {
             //if magazine is bigger then 0 and canfire is true and isreloading is false do code
             if (magazine > 0 && canFire == true && isReloading == false)
             {
+                print("SHooting");
+                Shoot();
                 //sets canfire to false
                 canFire = false;
                 //plays the gun_shoot animation
@@ -61,6 +66,22 @@ public class Gun : MonoBehaviour
             {
                 magazine = totalAmmo;
                 totalAmmo = 0;
+            }
+        }
+    }
+    void Shoot()
+    {
+        RaycastHit hit;
+        //if ray origin position, direction, out hit, float maxDistance = true do code
+        if (Physics.Raycast(shootPoint.transform.position, shootPoint.transform.forward, out hit, maxDistance))
+        {
+            //if raycasthit hit collider tag is equal to "Enemy"
+            if (hit.collider.tag == "Enemy")
+            {
+                //get the script EnemyBehavior component
+
+                //prints the raycast hit collider tag
+                print(hit.collider.tag);
             }
         }
     }
