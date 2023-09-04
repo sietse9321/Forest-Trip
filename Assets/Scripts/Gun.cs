@@ -1,28 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    //animator refrence
-    Animator animator;
+    //bool true or false
+    bool canFire = true, isReloading = false;
     //ints to store numbers
     [SerializeField] int magazine = 10, totalAmmo = 40;
+    //float number
     float maxDistance = 100f;
     //transform
     [SerializeField] Transform shootPoint;
-    //bool true or false
-    bool canFire = true, isReloading = false;
+    //animator refrence
+    Animator animator;
+    TextMeshProUGUI ammoText;
     void Start()
     {
         //gets the animator component from this gameobject
         animator = GetComponent<Animator>();
+        ammoText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        ammoText.text = magazine.ToString();
             Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward * maxDistance);
         //if mouse button 0 (left-click) is pressed down do code
         if (Input.GetMouseButtonDown(0))
