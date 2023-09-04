@@ -27,6 +27,14 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(magazine == 0)
+        {
+            animator.SetBool("empty", true);
+        }
+        else
+        {
+            animator.SetBool("empty", false);
+        }
         ammoText.text = magazine.ToString();
             Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward * maxDistance);
         //if mouse button 0 (left-click) is pressed down do code
@@ -49,6 +57,7 @@ public class Gun : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
+            animator.SetBool("reload", true);
             //sets bool to true
             isReloading = true;
             StartCoroutine(Time(2f, "reload"));
@@ -103,6 +112,7 @@ public class Gun : MonoBehaviour
         {
             //waits for the amount of time
             yield return new WaitForSeconds(time);
+            animator.SetBool("reload", false);
             //sets isreloading to false
             isReloading = false;
         }

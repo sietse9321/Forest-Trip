@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5372777616225974940}
   - component: {fileID: 2778660175132042205}
   m_Layer: 8
-  m_Name: Text (TMP)
+  m_Name: AmmoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
