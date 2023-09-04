@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
             //if magazine is bigger then 0 and canfire is true and isreloading is false do code
             if (magazine > 0 && canFire == true && isReloading == false)
             {
-                print("SHooting");
+                print("Shooting");
                 Shoot();
                 //sets canfire to false
                 canFire = false;
