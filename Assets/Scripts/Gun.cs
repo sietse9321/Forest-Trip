@@ -1,28 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    //animator refrence
-    Animator animator;
+    //bool true or false
+    bool canFire = true, isReloading = false;
     //ints to store numbers
     [SerializeField] int magazine = 10, totalAmmo = 40;
+    //float number
     float maxDistance = 100f;
     //transform
     [SerializeField] Transform shootPoint;
-    //bool true or false
-    bool canFire = true, isReloading = false;
+    //animator refrence
+    Animator animator;
+    TextMeshProUGUI ammoText;
     void Start()
     {
         //gets the animator component from this gameobject
         animator = GetComponent<Animator>();
+        ammoText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(magazine == 0)
+        {
+            animator.SetBool("empty", true);
+        }
+        else
+        {
+            animator.SetBool("empty", false);
+        }
+        ammoText.text = magazine.ToString();
             Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward * maxDistance);
         //if mouse button 0 (left-click) is pressed down do code
         if (Input.GetMouseButtonDown(0))
@@ -39,11 +52,12 @@ public class Gun : MonoBehaviour
                 //lowers magazine by 1
                 magazine--;
                 //starts a coroutine so that the code can be used after this frame
-                StartCoroutine(Time(0.25f, "rof"));
+                StartCoroutine(Time(0.15f, "rof"));
             }
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
+            animator.SetBool("reload", true);
             //sets bool to true
             isReloading = true;
             StartCoroutine(Time(2f, "reload"));
@@ -98,6 +112,7 @@ public class Gun : MonoBehaviour
         {
             //waits for the amount of time
             yield return new WaitForSeconds(time);
+            animator.SetBool("reload", false);
             //sets isreloading to false
             isReloading = false;
         }
