@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Ammo Decal02_mat.mat.meta
 guid: 5e49d7e7e88538142a5458424d5288e7
+========
+guid: 9ca22510633fbfd4399f1704cd9d5c72
+>>>>>>>> main:Assets/Fantasy Skybox FREE/Panoramics/FS002/FS002_Day.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
