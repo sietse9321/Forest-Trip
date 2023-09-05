@@ -52,7 +52,7 @@ public class Gun : MonoBehaviour
                 //lowers magazine by 1
                 magazine--;
                 //starts a coroutine so that the code can be used after this frame
-                StartCoroutine(Time(0.25f, "rof"));
+                StartCoroutine(Time(0.15f, "rof"));
             }
         }
         if (Input.GetKeyDown(KeyCode.R))
