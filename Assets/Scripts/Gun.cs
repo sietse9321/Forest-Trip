@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour
     //animator refrence
     Animator animator;
     TextMeshProUGUI ammoText;
+    EnemyBehavior eB;
     void Start()
     {
         //gets the animator component from this gameobject
@@ -92,8 +93,9 @@ public class Gun : MonoBehaviour
             //if raycasthit hit collider tag is equal to "Enemy"
             if (hit.collider.tag == "Enemy")
             {
+                eB = hit.transform.gameObject.GetComponent<EnemyBehavior>();
                 //get the script EnemyBehavior component
-
+                eB.health--;
                 //prints the raycast hit collider tag
                 print(hit.collider.tag);
             }
@@ -103,22 +105,22 @@ public class Gun : MonoBehaviour
     /// <summary>
     /// used to wait a certain amount of time
     /// </summary>
-    /// <param name="time"></param>
-    /// <param name="type"></param>
+    /// <param name="_time"></param>
+    /// <param name="_name"></param>
     /// <returns></returns>
-    IEnumerator Time(float time, string type)
+    IEnumerator Time(float _time, string _name)
     {
-        if (type == "reload")
+        if (_name == "reload")
         {
             //waits for the amount of time
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(_time);
             animator.SetBool("reload", false);
             //sets isreloading to false
             isReloading = false;
         }
-        else if (type == "rof")
+        else if (_name == "rof")
         {
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(_time);
             canFire = true;
         }
     }
