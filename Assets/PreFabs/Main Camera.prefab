@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46605777578564388}
   - component: {fileID: 46605777578564391}
+  - component: {fileID: 6914778106117842996}
   - component: {fileID: 46605777578564390}
   - component: {fileID: 46605777578564389}
   m_Layer: 0
@@ -78,6 +79,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &6914778106117842996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46605777578564393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050aff5950e5c044f8e1b4669f91c9b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensX: 400
+  sensY: 400
+  turn: {fileID: 0}
 --- !u!81 &46605777578564390
 AudioListener:
   m_ObjectHideFlags: 0
@@ -130,7 +146,6 @@ GameObject:
   - component: {fileID: 10280265454734448}
   - component: {fileID: 2284009918968468559}
   - component: {fileID: 1618286391570020904}
-  - component: {fileID: 2262576124270868748}
   m_Layer: 0
   m_Name: background
   m_TagString: Untagged
@@ -203,19 +218,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2262576124270868748
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390764139195492406}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2202473547747379363
 GameObject:
   m_ObjectHideFlags: 0
