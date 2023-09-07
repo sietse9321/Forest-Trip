@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public float grounddrag = 0f;
     public float playerHeight;
     bool grounded;
+    public CapsuleCollider Size;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         //ground = 1 << 3; // plek van de niuewe layer
         rb.freezeRotation = true;
-       
+        Size = GetComponent<CapsuleCollider>();
+        Size.height = 2.0f;
 
     }
 
@@ -64,6 +66,7 @@ public class Player : MonoBehaviour
             Jump(); // roept een method op
 
         }
+        
         if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = +30f;
@@ -76,6 +79,15 @@ public class Player : MonoBehaviour
             {
                 speed = 15;
             }
+        }
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            speed = 7.5f;
+            Size.height = 1f;
+        }
+        else
+        {
+            Size.height = 2f;
         }
     }
     public void Jump()
