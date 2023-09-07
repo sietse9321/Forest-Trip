@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831237f8517a606458f42d44e934d2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToInstantiate: {fileID: 1526690425798774107, guid: f07d8243148f88141add59c76b3deead,
-    type: 3}
-  numberOfObjects: 10
+  enemy: {fileID: 0}
+  possibleSpawnPos: 36
   radius: 5
+  count: -1000

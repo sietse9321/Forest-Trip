@@ -9,6 +9,11 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] public float health = 5f;
     // Update is called once per frame
+    private void Awake()
+    {
+        playerObject = GameObject.Find("henk");
+    }
+
     void Update()
     {
         if (health <= 0)
