@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000017236058, g: 0.000000027004777, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017033932, g: 0.000000025772884, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -550,14 +550,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
-  m_LocalRotation: {x: 0.57396156, y: 0.32226261, z: 0.52160597, w: -0.5428095}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 7.9907613, y: 3, z: 10.975226}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -106.404, y: 241.806, z: -675.958}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,6 +679,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4335768345104374, guid: df32d079362cd4d408b19a6dc52ee968,
     type: 3}
   m_PrefabInstance: {fileID: 563804445}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &564529908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1390764139195492406, guid: e1c87feae66412548bf2b06cdde40c71,
+    type: 3}
+  m_PrefabInstance: {fileID: 1501922403}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &580908478
 GameObject:
@@ -1260,6 +1266,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 71859942}
     m_Modifications:
+    - target: {fileID: 46605777310805104, guid: e1c87feae66412548bf2b06cdde40c71,
+        type: 3}
+      propertyPath: mat1
+      value: 
+      objectReference: {fileID: 2100000, guid: cdd64ce782e686148bcf60de2c8f6eeb, type: 2}
+    - target: {fileID: 46605777310805104, guid: e1c87feae66412548bf2b06cdde40c71,
+        type: 3}
+      propertyPath: mat2
+      value: 
+      objectReference: {fileID: 2100000, guid: 0719f0da68ec0624bada37643a4f5930, type: 2}
+    - target: {fileID: 46605777310805104, guid: e1c87feae66412548bf2b06cdde40c71,
+        type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 564529908}
     - target: {fileID: 46605777578564388, guid: e1c87feae66412548bf2b06cdde40c71,
         type: 3}
       propertyPath: m_RootOrder

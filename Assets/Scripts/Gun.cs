@@ -18,6 +18,9 @@ public class Gun : MonoBehaviour
     Animator animator;
     TextMeshProUGUI ammoText;
     EnemyBehavior eB;
+    [SerializeField] Material mat1;
+    [SerializeField] Material mat2;
+    [SerializeField] GameObject background;
     void Start()
     {
         //gets the animator component from this gameobject
@@ -25,10 +28,18 @@ public class Gun : MonoBehaviour
         ammoText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(magazine == 0)
+        
+        if(magazine <= 3)
+        {
+            background.GetComponent<MeshRenderer>().material = mat2;
+        }
+        else
+        {
+            background.GetComponent<MeshRenderer>().material = mat1;
+        }
+        if (magazine == 0)
         {
             animator.SetBool("empty", true);
         }
@@ -37,7 +48,12 @@ public class Gun : MonoBehaviour
             animator.SetBool("empty", false);
         }
         ammoText.text = magazine.ToString();
-            Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward * maxDistance);
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward * maxDistance);
+
         //if mouse button 0 (left-click) is pressed down do code
         if (Input.GetMouseButtonDown(0))
         {
