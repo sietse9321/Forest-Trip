@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    [SerializeField] private GameObject playerObject;
+    [SerializeField] private GameObject playerObject = null;
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] public float health = 5f;
     // Update is called once per frame

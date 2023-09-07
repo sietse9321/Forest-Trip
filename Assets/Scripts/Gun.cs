@@ -111,7 +111,7 @@ public class Gun : MonoBehaviour
             {
                 eB = hit.transform.gameObject.GetComponent<EnemyBehavior>();
                 //get the script EnemyBehavior component
-                //eB.health--;
+                eB.health--;
                 //prints the raycast hit collider tag
                 print(hit.collider.tag);
             }
