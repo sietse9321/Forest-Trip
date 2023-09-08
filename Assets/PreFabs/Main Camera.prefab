@@ -703,6 +703,9 @@ MonoBehaviour:
   magazine: 10
   totalAmmo: 40
   shootPoint: {fileID: 6454790789141982208}
+  mat1: {fileID: 0}
+  mat2: {fileID: 0}
+  background: {fileID: 0}
 --- !u!4 &6454790790734952150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6427082740678482594, guid: 3f16d4846a4e2b3479e6d05ffa8c70dc,
