@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 4793593224459245846}
   - component: {fileID: 4793593224459245847}
   - component: {fileID: 4793593224459245845}
+  - component: {fileID: -6357331511292420515}
   m_Layer: 0
   m_Name: henk
   m_TagString: Untagged
@@ -184,3 +185,19 @@ MonoBehaviour:
   grounddrag: 0
   playerHeight: 0
   Size: {fileID: 0}
+--- !u!114 &-6357331511292420515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4793593224459245832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831237f8517a606458f42d44e934d2b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToInstantiate: {fileID: 1526690425798774107, guid: f07d8243148f88141add59c76b3deead,
+    type: 3}
+  numberOfObjects: 10
+  radius: 5

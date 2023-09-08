@@ -16,7 +16,7 @@ public class EnemyBehavior : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         //berekent de richting waar de enemy naartoe beweegt 
         Vector3 moveDirection = (playerObject.transform.position - transform.position).normalized;
