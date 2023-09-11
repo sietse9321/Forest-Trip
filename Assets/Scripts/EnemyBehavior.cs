@@ -2,30 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    [SerializeField] private GameObject playerObject = null;
-    [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] public float health = 5f;
+    [SerializeField] GameObject playerObject;
+    public float health = 3f;
+    NavMeshAgent agent;
     // Update is called once per frame
     private void Awake()
     {
-        playerObject = GameObject.Find("henk");
+        playerObject = GameObject.Find("henk 1 1");
+        agent = gameObject.GetComponent<NavMeshAgent>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        agent.SetDestination(playerObject.transform.position);
         if (health <= 0)
         {
             Destroy(gameObject);
         }
-    }
-    void FixedUpdate()
-    {
-        //berekent de richting waar de enemy naartoe beweegt 
-        Vector3 moveDirection = (playerObject.transform.position - transform.position).normalized;
-        //gebruikt vervolgens het resultaat van hier boven om richting de speler te bewegen
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
 }
