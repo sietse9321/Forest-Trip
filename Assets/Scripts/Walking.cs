@@ -9,7 +9,10 @@ public class Walking : MonoBehaviour
     public GameObject crawl;
     public AudioSource shoot;
     public AudioSource reload;
+    public Gun gn;
+    public AudioSource jammed;
     
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,12 +77,21 @@ public class Walking : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            shoot.Play();
+           if(gn.magazine > 0)
+            {
+                shoot.Play();
+            }
+            else
+            {
+                jammed.Play();
+            }
         }
         if (Input.GetKey(KeyCode.R))
         {
             reload.Play();
         }
+        
+        
 
 
     }

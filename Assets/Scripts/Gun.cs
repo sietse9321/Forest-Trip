@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     //bool true or false
     bool canFire = true, isReloading = false;
     //ints to store numbers
-    [SerializeField] int magazine = 10;
+    public int magazine = 10;
     //float number
     float maxDistance = 100f;
     //transform
@@ -68,7 +68,7 @@ public class Gun : MonoBehaviour
                 //lowers magazine by 1
                 magazine--;
                 GameObject destory = Instantiate(muzzleFlash, muzzlePoint);
-                Destroy(destory, 0.3f);
+                Destroy(destory, 0.15f);
                 //starts a coroutine so that the code can be used after this frame
                 StartCoroutine(Time(0.15f, "rof"));
             }

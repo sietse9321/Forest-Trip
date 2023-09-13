@@ -9,6 +9,8 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] GameObject playerObject;
     public float health = 3f;
     NavMeshAgent agent;
+    
+    
     // Update is called once per frame
     private void Awake()
     {
@@ -18,10 +20,13 @@ public class EnemyBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
+       
         agent.SetDestination(playerObject.transform.position);
         if (health <= 0)
         {
             Destroy(gameObject);
+           
         }
+        
     }
 }
