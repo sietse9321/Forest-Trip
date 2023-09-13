@@ -6,20 +6,20 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    //bool true or false
-    bool canFire = true, isReloading = false;
-    //ints to store numbers
-    [SerializeField] int magazine = 10;
-    //float number
-    float maxDistance = 100f;
-    //transform
-    [SerializeField] Transform shootPoint,muzzlePoint;
-    //animator refrence
-    Animator animator;
-    TextMeshProUGUI ammoText;
-    EnemyBehavior eB;
     [SerializeField] Material mat1, mat2;
     [SerializeField] GameObject background, muzzleFlash;
+    //refrences to transforms
+    [SerializeField] Transform shootPoint,muzzlePoint;
+    //ints to store numbers
+    [SerializeField] int magazine = 10;
+    //bool true or false
+    bool canFire = true, isReloading = false;
+    //float number
+    float maxDistance = 100f;
+    //animator refrence
+    EnemyBehavior eB;
+    Animator animator;
+    TextMeshProUGUI ammoText;
     void Start()
     {
         //gets the animator component from this gameobject
@@ -68,7 +68,7 @@ public class Gun : MonoBehaviour
                 //lowers magazine by 1
                 magazine--;
                 GameObject destory = Instantiate(muzzleFlash, muzzlePoint);
-                Destroy(destory, 0.3f);
+                Destroy(destory, 0.15f);
                 //starts a coroutine so that the code can be used after this frame
                 StartCoroutine(Time(0.15f, "rof"));
             }

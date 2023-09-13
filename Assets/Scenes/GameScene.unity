@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017060436, g: 0.000000025868585, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -564,14 +564,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.3537127, y: -0.5845599, z: -0.5936695, w: -0.42512786}
   m_LocalPosition: {x: 7.9907613, y: 3, z: 10.975226}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 264.164, y: -130.735, z: 243.804}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,17 +991,17 @@ PrefabInstance:
     - target: {fileID: 6319320242888445555, guid: 0445d265f6fe6cd42ac404e9f769d178,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 841.11084
+      value: 586.02673
       objectReference: {fileID: 0}
     - target: {fileID: 6319320242888445555, guid: 0445d265f6fe6cd42ac404e9f769d178,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 112.26256
+      value: 18.19
       objectReference: {fileID: 0}
     - target: {fileID: 6319320242888445555, guid: 0445d265f6fe6cd42ac404e9f769d178,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 908.98364
+      value: 493.755
       objectReference: {fileID: 0}
     - target: {fileID: 6319320242888445555, guid: 0445d265f6fe6cd42ac404e9f769d178,
         type: 3}
@@ -1343,6 +1343,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 46605777578564391, guid: e1c87feae66412548bf2b06cdde40c71,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 46605777578564393, guid: e1c87feae66412548bf2b06cdde40c71,
         type: 3}
