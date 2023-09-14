@@ -6,21 +6,20 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    [SerializeField] Material mat1, mat2;
+    [SerializeField] GameObject background, muzzleFlash;
+    //refrences to transforms
+    [SerializeField] Transform shootPoint,muzzlePoint;
+    //ints to store numbers
+    [SerializeField] int magazine = 10;
     //bool true or false
     bool canFire = true, isReloading = false;
-    //ints to store numbers
-    [SerializeField] int magazine = 10, totalAmmo = 40;
     //float number
     float maxDistance = 100f;
-    //transform
-    [SerializeField] Transform shootPoint;
     //animator refrence
+    EnemyBehavior eB;
     Animator animator;
     TextMeshProUGUI ammoText;
-    EnemyBehavior eB;
-    [SerializeField] Material mat1;
-    [SerializeField] Material mat2;
-    [SerializeField] GameObject background;
     void Start()
     {
         //gets the animator component from this gameobject
@@ -30,8 +29,8 @@ public class Gun : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-        if(magazine <= 3)
+
+        if (magazine <= 3)
         {
             background.GetComponent<MeshRenderer>().material = mat2;
         }
@@ -68,6 +67,8 @@ public class Gun : MonoBehaviour
                 animator.Play("gun_shoot");
                 //lowers magazine by 1
                 magazine--;
+                GameObject destory = Instantiate(muzzleFlash, muzzlePoint);
+                Destroy(destory, 0.15f);
                 //starts a coroutine so that the code can be used after this frame
                 StartCoroutine(Time(0.15f, "rof"));
             }
@@ -79,25 +80,15 @@ public class Gun : MonoBehaviour
             isReloading = true;
             StartCoroutine(Time(2f, "reload"));
             //ads magazine to totalammo
-            totalAmmo += magazine;
-            if (totalAmmo > 10)
+            if (magazine > 0)
             {
-                if (magazine > 0)
-                {
-                    magazine = 10;
-                    totalAmmo -= 10;
-                }
-                if (magazine == 0)
-                {
-                    magazine = 9;
-                    totalAmmo -= 9;
-                }
+                magazine = 10;
             }
-            else
+            if (magazine == 0)
             {
-                magazine = totalAmmo;
-                totalAmmo = 0;
+                magazine = 9;
             }
+
         }
     }
     void Shoot()
