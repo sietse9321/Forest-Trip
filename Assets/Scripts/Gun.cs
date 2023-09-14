@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     //refrences to transforms
     [SerializeField] Transform shootPoint,muzzlePoint;
     //ints to store numbers
-    [SerializeField] int magazine = 10;
+    public int magazine = 10;
     //bool true or false
     bool canFire = true, isReloading = false;
     //float number
@@ -51,6 +51,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward * maxDistance);
 
         //if mouse button 0 (left-click) is pressed down do code
