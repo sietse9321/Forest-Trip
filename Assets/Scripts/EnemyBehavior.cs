@@ -9,10 +9,11 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] GameObject playerObject;
     public float health = 3f;
     NavMeshAgent agent;
-    
+    [SerializeField] GameObject hurtSound;
+    [SerializeField] GameObject deathSound;
     
     // Update is called once per frame
-    private void Awake()
+    void Awake()
     {
         playerObject = GameObject.Find("henk 1 1");
         agent = gameObject.GetComponent<NavMeshAgent>();
@@ -20,12 +21,12 @@ public class EnemyBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-       
         agent.SetDestination(playerObject.transform.position);
         if (health <= 0)
         {
+            GameObject soundToDestroy = Instantiate(deathSound);
+            Destroy(soundToDestroy,2f);
             Destroy(gameObject);
         }
-        
     }
 }

@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (count % 200 == 0)
+        if (count % 500 == 0)
         {
             SpawnObjectsInCircle();
         }
