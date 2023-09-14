@@ -16,6 +16,6 @@ public class SceneSwitcher : MonoBehaviour
     /// </summary>
     public void LoadScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

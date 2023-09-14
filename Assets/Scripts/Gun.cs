@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     [SerializeField] Material mat1, mat2;
     [SerializeField] GameObject background, muzzleFlash;
     //refrences to transforms
-    [SerializeField] Transform shootPoint,muzzlePoint;
+    [SerializeField] Transform shootPoint, muzzlePoint;
     //ints to store numbers
     public int magazine = 10;
     //bool true or false
@@ -26,32 +26,9 @@ public class Gun : MonoBehaviour
         animator = GetComponent<Animator>();
         ammoText = GetComponentInChildren<TextMeshProUGUI>();
     }
-
-    void FixedUpdate()
-    {
-
-        if (magazine <= 3)
-        {
-            background.GetComponent<MeshRenderer>().material = mat2;
-        }
-        else
-        {
-            background.GetComponent<MeshRenderer>().material = mat1;
-        }
-        if (magazine == 0)
-        {
-            animator.SetBool("empty", true);
-        }
-        else
-        {
-            animator.SetBool("empty", false);
-        }
-        ammoText.text = magazine.ToString();
-    }
     // Update is called once per frame
     void Update()
     {
-
         Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward * maxDistance);
 
         //if mouse button 0 (left-click) is pressed down do code
@@ -74,6 +51,7 @@ public class Gun : MonoBehaviour
                 StartCoroutine(Time(0.15f, "rof"));
             }
         }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             animator.SetBool("reload", true);
@@ -81,16 +59,33 @@ public class Gun : MonoBehaviour
             isReloading = true;
             StartCoroutine(Time(2f, "reload"));
             //ads magazine to totalammo
-            if (magazine > 0)
-            {
-                magazine = 10;
-            }
             if (magazine == 0)
             {
                 magazine = 9;
             }
-
+            else
+            {
+                magazine = 10;
+            }
         }
+
+        if (magazine <= 3)
+        {
+            background.GetComponent<MeshRenderer>().material = mat2;
+        }
+        else
+        {
+            background.GetComponent<MeshRenderer>().material = mat1;
+        }
+        if (magazine == 0)
+        {
+            animator.SetBool("empty", true);
+        }
+        else
+        {
+            animator.SetBool("empty", false);
+        }
+        ammoText.text = magazine.ToString();
     }
     void Shoot()
     {

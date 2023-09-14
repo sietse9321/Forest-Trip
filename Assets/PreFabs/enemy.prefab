@@ -221,7 +221,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 0}
   health: 3
-  death: {fileID: 0}
+  hurtSound: {fileID: 4773924228569466499, guid: 1633712db29ac9349b9f1d4a9cfff520,
+    type: 3}
+  deathSound: {fileID: 2856588608864012280, guid: 2b38ab381f1b3f5449725b7b5d77b53b,
+    type: 3}
 --- !u!54 &-8650479143970752631
 Rigidbody:
   m_ObjectHideFlags: 0
