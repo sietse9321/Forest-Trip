@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    [SerializeField] Rigidbody rb;
     [SerializeField] private GameObject playerObject = null;
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] public float health = 5f;
@@ -12,6 +13,7 @@ public class EnemyBehavior : MonoBehaviour
     private void Awake()
     {
         playerObject = GameObject.Find("henk");
+        rb.GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -26,6 +28,7 @@ public class EnemyBehavior : MonoBehaviour
         //berekent de richting waar de enemy naartoe beweegt 
         Vector3 moveDirection = (playerObject.transform.position - transform.position).normalized;
         //gebruikt vervolgens het resultaat van hier boven om richting de speler te bewegen
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        rb.AddForce(moveDirection * moveSpeed * Time.deltaTime);
+
     }
 }

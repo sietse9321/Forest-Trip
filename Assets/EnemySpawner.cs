@@ -20,8 +20,8 @@ public class EnemySpawner : MonoBehaviour
     }
     void SpawnObjectsInCircle()
     {
-        float angle = Random.Range(1, 37) * Mathf.PI * 2 / possibleSpawnPos;
-        Vector3 spawnPosition = transform.position + new Vector3(Mathf.Cos(angle) * radius, 0, Mathf.Sin(angle) * radius);
+        float angle = Random.Range(1, 37) * Mathf.PI * 2 / possibleSpawnPos; //bepaalt de richting waar op de enemies kunnen spawnen
+        Vector3 spawnPosition = transform.position + new Vector3(Mathf.Cos(angle) * radius, 0, Mathf.Sin(angle) * radius); //berekent de lokatie waar de enemy geplaatst moet worden
         GameObject newObject = Instantiate(enemy, spawnPosition, Quaternion.identity);
     }
 }

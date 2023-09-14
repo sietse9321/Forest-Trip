@@ -80,16 +80,7 @@ public class Walking : MonoBehaviour
         {
             reload.Play();
         }
-
-
     }
-
-
-
-
-
-
-
     void WalkStart()
     {
         walk.SetActive(true);
