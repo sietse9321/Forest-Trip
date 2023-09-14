@@ -8,16 +8,11 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] Material mat1, mat2;
     [SerializeField] GameObject background, muzzleFlash;
-    //refrences to transforms
-    [SerializeField] Transform shootPoint,muzzlePoint;
-    //ints to store numbers
-    [SerializeField] int magazine = 10;
-    //bool true or false
-    bool canFire = true, isReloading = false;
-    //float number
-    float maxDistance = 100f;
-    //animator refrence
-    EnemyBehavior eB;
+    [SerializeField] Transform shootPoint,muzzlePoint;//refrences to transforms
+    public int magazine = 10;                        //ints to store numbers
+    bool canFire = true, isReloading = false;       //bool true or false
+    float maxDistance = 100f;                      //float number
+    EnemyBehavior eB;                             //animator refrence
     Animator animator;
     TextMeshProUGUI ammoText;
     void Start()
