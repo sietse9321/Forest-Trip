@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     //refrences to transforms
     [SerializeField] Transform shootPoint,muzzlePoint;
     //ints to store numbers
-    [SerializeField] int magazine = 10;
+    public int magazine = 10;
     //bool true or false
     bool canFire = true, isReloading = false;
     //float number

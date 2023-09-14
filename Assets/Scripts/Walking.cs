@@ -11,6 +11,9 @@ public class Walking : MonoBehaviour
     public AudioSource reload;
     public Gun gn;
     public AudioSource jammed;
+    public GameObject running;
+    public EnemyBehavior enemy;
+    public AudioSource damage;
     
 
     // Start is called before the first frame update
@@ -61,11 +64,19 @@ public class Walking : MonoBehaviour
         }
         if (Input.GetKeyDown("space"))
         {
-            JumpStop();
+            JumpStart();
         }
         if (Input.GetKeyUp("space"))
         {
-            JumpStart();
+            JumpStop();
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            RunStart();
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            RunStop();
         }
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -89,6 +100,10 @@ public class Walking : MonoBehaviour
         if (Input.GetKey(KeyCode.R))
         {
             reload.Play();
+        }
+        if(enemy.health == 2 || enemy.health == 1)
+        {
+            damage.Play();
         }
         
         
@@ -126,7 +141,15 @@ public class Walking : MonoBehaviour
     {
         crawl.SetActive(false);
     }
-    
+    void RunStart()
+    {
+        running.SetActive(true);
+    }
+    void RunStop()
+    {
+        running.SetActive(false);
+    }
+
 
 }
 
