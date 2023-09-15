@@ -24,7 +24,7 @@ public class EnemyBehavior : MonoBehaviour
         agent.SetDestination(playerObject.transform.position);
         if (health <= 0)
         {
-            GameObject soundToDestroy = Instantiate(deathSound);
+            GameObject soundToDestroy = Instantiate(deathSound, transform.position,Quaternion.identity);
             Destroy(soundToDestroy,2f);
             Destroy(gameObject);
         }
