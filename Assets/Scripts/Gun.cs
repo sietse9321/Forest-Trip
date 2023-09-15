@@ -6,18 +6,15 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    //bool true or false
-    bool canFire = true, isReloading = false;
-    //ints to store numbers
-    [SerializeField] int magazine = 10, totalAmmo = 40;
-    //float number
-    float maxDistance = 100f;
-    //transform
-    [SerializeField] Transform shootPoint;
-    //animator refrence
+    [SerializeField] Material mat1, mat2;
+    [SerializeField] GameObject background, muzzleFlash;
+    [SerializeField] Transform shootPoint,muzzlePoint;//refrences to transforms
+    public int magazine = 10;                        //ints to store numbers
+    bool canFire = true, isReloading = false;       //bool true or false
+    float maxDistance = 100f;                      //float number
+    EnemyBehavior eB;                             //animator refrence
     Animator animator;
     TextMeshProUGUI ammoText;
-    EnemyBehavior eB;
     void Start()
     {
         //gets the animator component from this gameobject
@@ -25,10 +22,18 @@ public class Gun : MonoBehaviour
         ammoText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(magazine == 0)
+
+        if (magazine <= 3)
+        {
+            background.GetComponent<MeshRenderer>().material = mat2;
+        }
+        else
+        {
+            background.GetComponent<MeshRenderer>().material = mat1;
+        }
+        if (magazine == 0)
         {
             animator.SetBool("empty", true);
         }
@@ -37,7 +42,12 @@ public class Gun : MonoBehaviour
             animator.SetBool("empty", false);
         }
         ammoText.text = magazine.ToString();
-            Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward * maxDistance);
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward * maxDistance);
+
         //if mouse button 0 (left-click) is pressed down do code
         if (Input.GetMouseButtonDown(0))
         {
@@ -52,6 +62,8 @@ public class Gun : MonoBehaviour
                 animator.Play("gun_shoot");
                 //lowers magazine by 1
                 magazine--;
+                GameObject destory = Instantiate(muzzleFlash, muzzlePoint);
+                Destroy(destory, 0.15f);
                 //starts a coroutine so that the code can be used after this frame
                 StartCoroutine(Time(0.15f, "rof"));
             }
@@ -63,25 +75,15 @@ public class Gun : MonoBehaviour
             isReloading = true;
             StartCoroutine(Time(2f, "reload"));
             //ads magazine to totalammo
-            totalAmmo += magazine;
-            if (totalAmmo > 10)
+            if (magazine > 0)
             {
-                if (magazine > 0)
-                {
-                    magazine = 10;
-                    totalAmmo -= 10;
-                }
-                if (magazine == 0)
-                {
-                    magazine = 9;
-                    totalAmmo -= 9;
-                }
+                magazine = 10;
             }
-            else
+            if (magazine == 0)
             {
-                magazine = totalAmmo;
-                totalAmmo = 0;
+                magazine = 9;
             }
+
         }
     }
     void Shoot()
@@ -95,7 +97,7 @@ public class Gun : MonoBehaviour
             {
                 eB = hit.transform.gameObject.GetComponent<EnemyBehavior>();
                 //get the script EnemyBehavior component
-                //eB.health--;
+                eB.health--;
                 //prints the raycast hit collider tag
                 print(hit.collider.tag);
             }

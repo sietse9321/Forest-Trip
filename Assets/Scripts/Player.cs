@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     bool grounded;
     public CapsuleCollider Size;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,20 +71,20 @@ public class Player : MonoBehaviour
         
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = +30f;
+            speed = +15f;
         }
         else
         {
-            speed = 15f;
+            speed = 10f;
 
-            if (speed >= 15)
+            if (speed >= 10f)
             {
-                speed = 15;
+                speed = 10f;
             }
         }
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            speed = 7.5f;
+            speed = 5f;
             Size.height = 1f;
         }
         else
