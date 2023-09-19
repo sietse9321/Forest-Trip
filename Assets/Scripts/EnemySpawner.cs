@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnObjectsInCircle();
         }
-        count++;
+        count++;//telt op met 50 per seconden
     }
     /// <summary>
     /// deze method berekent een cirkel rondom de speler en zet ergens op die radius een enemy
