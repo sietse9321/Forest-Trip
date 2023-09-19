@@ -225,6 +225,12 @@ MonoBehaviour:
     type: 3}
   deathSound: {fileID: 2856588608864012280, guid: 2b38ab381f1b3f5449725b7b5d77b53b,
     type: 3}
+  sound1: {fileID: 1549843359909640860, guid: bb55dd6498796974d91ec486d7e6a59e, type: 3}
+  sound2: {fileID: 4720413422220296925, guid: a775ca4f6caa40b47bd79f776ae1abaf, type: 3}
+  sound3: {fileID: 6427673871863409461, guid: f6457816afc24dc409840ead5ef43634, type: 3}
+  sound4: {fileID: 611651047210371389, guid: f42ccde0524f6104882cb81d72e8050d, type: 3}
+  sound5: {fileID: 5736775688649611098, guid: c9bb8db35db754c439034d1223ad4a34, type: 3}
+  death: {fileID: 7975429060380100691, guid: b09baba7a08534545aff1dd8fdca316e, type: 3}
 --- !u!54 &-8650479143970752631
 Rigidbody:
   m_ObjectHideFlags: 0
