@@ -750,6 +750,11 @@ MonoBehaviour:
   crawl: {fileID: 1528127529869346329}
   shoot: {fileID: 1341853431033127464}
   reload: {fileID: 1341853431774891247}
+  gn: {fileID: 0}
+  jammed: {fileID: 0}
+  running: {fileID: 0}
+  enemy: {fileID: 0}
+  damage: {fileID: 0}
 --- !u!136 &6319320242888445559
 CapsuleCollider:
   m_ObjectHideFlags: 0
