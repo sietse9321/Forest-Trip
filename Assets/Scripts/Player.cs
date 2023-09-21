@@ -78,13 +78,13 @@ public class Player : MonoBehaviour
         
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = +15f;
+            speed = 15f;
         }
         else
         {
             speed = 10f;
 
-            if (speed >= 10f)
+            if (speed > 10f)
             {
                 speed = 10f;
             }
