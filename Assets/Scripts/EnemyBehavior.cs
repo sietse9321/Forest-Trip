@@ -16,12 +16,22 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] GameObject sound3;
     [SerializeField] GameObject sound4;
     [SerializeField] GameObject sound5;
+    [SerializeField] GameObject sound6;
+    [SerializeField] GameObject sound7;
     [SerializeField] GameObject death;
+    
 
     void Awake()
     {
+<<<<<<< HEAD
+       
+        playerObject = GameObject.Find("henk 1 1");
+        agent = gameObject.GetComponent<NavMeshAgent>();
+        
+=======
         playerObject = GameObject.Find("henk 1 1");//find the game object of the player
         agent = gameObject.GetComponent<NavMeshAgent>();//gets the navmesh component
+>>>>>>> main
     }
 
     void FixedUpdate()
@@ -30,8 +40,13 @@ public class EnemyBehavior : MonoBehaviour
         agent.SetDestination(playerObject.transform.position); //goes towards player trough navmesh
         if (health <= 0)
         {
+<<<<<<< HEAD
+            GameObject soundToDestroy = Instantiate(deathSound,transform.position, Quaternion.identity);
+            Destroy(soundToDestroy, 3f);
+=======
             GameObject soundToDestroy = Instantiate(deathSound);//the sound the enemy makes when it dies
             Destroy(soundToDestroy, 2f);
+>>>>>>> main
             GameObject explosion = Instantiate(death, transform.position, Quaternion.identity);
             Destroy(explosion, 3f);
             Destroy(gameObject);//the enemy gets removed from the scene
@@ -42,7 +57,7 @@ public class EnemyBehavior : MonoBehaviour
     /// </summary>
     void Sound()
     {
-        float randomNumber = Random.Range(0, 1750);
+        float randomNumber = Random.Range(0, 2000);
         switch (randomNumber)
         {
             case 1:
@@ -64,6 +79,14 @@ public class EnemyBehavior : MonoBehaviour
             case 5:
                 GameObject soundToDestroy5 = Instantiate(sound5, transform.position, Quaternion.identity);
                 Destroy(soundToDestroy5, 4f);
+                break;
+            case 6:
+                GameObject soundToDestroy6 = Instantiate(sound6, transform.position, Quaternion.identity);
+                Destroy(soundToDestroy6, 4f);
+                break;
+            case 7:
+                GameObject soundToDestroy7 = Instantiate(sound7, transform.position, Quaternion.identity);
+                Destroy(soundToDestroy7, 4f);
                 break;
         }
 
