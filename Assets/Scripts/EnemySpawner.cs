@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
+    public GameObject enemy;
     [SerializeField] int possibleSpawnPos = 36; //number of possible spawn location
     [SerializeField] int spawnRate = 500; //the interval of enemies to spawn
     [SerializeField] float spawnHeight = 5f; // spawn height of enemies
