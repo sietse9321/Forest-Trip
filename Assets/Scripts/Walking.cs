@@ -4,116 +4,76 @@ using UnityEngine;
 
 public class Walking : MonoBehaviour
 {
+    //invisible game object that play the audio segments
     public GameObject walk;
     public GameObject jump;
     public GameObject crawl;
+    //audio segments
     public AudioSource shoot;
     public AudioSource reload;
-    public Gun gn;
-    public AudioSource jammed;
-    public GameObject running;
-    public EnemyBehavior enemy;
     public AudioSource damage;
-    
-
-    // Start is called before the first frame update
+    public AudioSource jammed;
+    //references to other scripts
+    public Gun gn;
+    public EnemyBehavior enemy;
     void Start()
     {
-        
-
         walk.SetActive(false);
         jump.SetActive(false);
         crawl.SetActive(false);
-        
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("w"))
+        //checks if the WASD buttons are being pressed
+        if (Input.GetKeyDown("w") || Input.GetKeyDown("s") || Input.GetKeyDown("d") || Input.GetKeyDown("a"))
         {
-            WalkStart();
+            WalkStart();//starts the walking noise 
         }
-        if (Input.GetKeyDown("s"))
+        //checks if the WASD buttons are being released
+        if (Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d"))
         {
-            WalkStart();
+            WalkStop();//stops the walking noise
         }
-        if (Input.GetKeyDown("d"))
-        {
-            WalkStart();
-        }
-        if (Input.GetKeyDown("a"))
-        {
-            WalkStart();
-        }
-        if (Input.GetKeyUp("w"))
-        {
-            WalkStop();
-        }
-        if (Input.GetKeyUp("a"))
-        {
-            WalkStop();
-        }
-        if (Input.GetKeyUp("s"))
-        {
-            WalkStop();
-        }
-        if (Input.GetKeyUp("d"))
-        {
-            WalkStop();
-        }
+        //checks if the space button is being pushed
         if (Input.GetKeyDown("space"))
         {
-            JumpStart();
+            JumpStart();//plays jumping noise
         }
+        //checks if the space button is released
         if (Input.GetKeyUp("space"))
         {
-            JumpStop();
+            JumpStop();//stops with jumping noise 
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            RunStart();
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            RunStop();
-        }
+        //checks if left control is being pressed
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            CrawlStart();
+            CrawlStart();//starts crawling noise
         }
+        //checks if left control is being released
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            CrawlStop();
+            CrawlStop();//stops crawling noise
         }
+        //checks if the left mouse button is being pressed
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-           if(gn.magazine > 0)
+            //check if the magazine level if greater than zero
+            if (gn.magazine > 0)
             {
-                shoot.Play();
+                shoot.Play();//plays gunfire sound
             }
             else
             {
-                jammed.Play();
+                jammed.Play();//plays clicking sound
             }
         }
+        //checks if the r button is pressed
         if (Input.GetKey(KeyCode.R))
         {
-            reload.Play();
+            reload.Play();//plays reload sound
         }
-        
-        
-        
-
-
     }
-
-
-
-
-
-
-
+    //these methods activate and deactivate sounds
     void WalkStart()
     {
         walk.SetActive(true);
@@ -138,16 +98,6 @@ public class Walking : MonoBehaviour
     {
         crawl.SetActive(false);
     }
-    void RunStart()
-    {
-        running.SetActive(true);
-    }
-    void RunStop()
-    {
-        running.SetActive(false);
-    }
-
-
 }
 
 
