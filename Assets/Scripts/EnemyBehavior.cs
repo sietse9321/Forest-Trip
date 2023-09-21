@@ -23,15 +23,11 @@ public class EnemyBehavior : MonoBehaviour
 
     void Awake()
     {
-<<<<<<< HEAD
-       
         playerObject = GameObject.Find("henk 1 1");
         agent = gameObject.GetComponent<NavMeshAgent>();
         
-=======
         playerObject = GameObject.Find("henk 1 1");//find the game object of the player
         agent = gameObject.GetComponent<NavMeshAgent>();//gets the navmesh component
->>>>>>> main
     }
 
     void FixedUpdate()
@@ -40,13 +36,9 @@ public class EnemyBehavior : MonoBehaviour
         agent.SetDestination(playerObject.transform.position); //goes towards player trough navmesh
         if (health <= 0)
         {
-<<<<<<< HEAD
-            GameObject soundToDestroy = Instantiate(deathSound,transform.position, Quaternion.identity);
+            GameObject soundToDestroy = Instantiate(deathSound,transform.position, Quaternion.identity);//the sound the enemy makes when it dies
             Destroy(soundToDestroy, 3f);
-=======
-            GameObject soundToDestroy = Instantiate(deathSound);//the sound the enemy makes when it dies
-            Destroy(soundToDestroy, 2f);
->>>>>>> main
+
             GameObject explosion = Instantiate(death, transform.position, Quaternion.identity);
             Destroy(explosion, 3f);
             Destroy(gameObject);//the enemy gets removed from the scene
