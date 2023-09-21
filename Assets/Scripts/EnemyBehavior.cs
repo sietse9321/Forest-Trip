@@ -37,6 +37,9 @@ public class EnemyBehavior : MonoBehaviour
             Destroy(gameObject);//the enemy gets removed from the scene
         }
     }
+    /// <summary>
+    /// speelt een willekeurig geluid af van de enemies
+    /// </summary>
     void Sound()
     {
         float randomNumber = Random.Range(0, 1750);
