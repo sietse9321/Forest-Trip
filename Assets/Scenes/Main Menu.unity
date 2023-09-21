@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 2c63dcede6c384d43a47f3109a456cbe,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -393,11 +394,6 @@ PrefabInstance:
     - target: {fileID: 4148558610199270, guid: 9864d3903a83fe04cba9fb988fe57231, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 199307596871952580, guid: 9864d3903a83fe04cba9fb988fe57231,
-        type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9864d3903a83fe04cba9fb988fe57231, type: 3}
@@ -1389,11 +1385,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Intensity
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 199039279896921746, guid: 3126ca4c2d851514395844c0d42d1ca7,
-        type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3126ca4c2d851514395844c0d42d1ca7, type: 3}
@@ -2976,11 +2967,6 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 199039279896921746, guid: 3126ca4c2d851514395844c0d42d1ca7,
-        type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3126ca4c2d851514395844c0d42d1ca7, type: 3}
 --- !u!1 &1780888770 stripped
@@ -3167,7 +3153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.69}
+  m_AnchoredPosition: {x: 0, y: 0.613}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2040751465
@@ -3191,7 +3177,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Leftclick to Shoot\nPress \"R\" to reload\n\"W\",\"A\",\"S\",\"D\" to
-    move \nSpacebar to jump\nL-Shift to run\nL-Control to crouch"
+    move \nSpacebar to jump\nL-Shift to run\nCTRL to crouch"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
