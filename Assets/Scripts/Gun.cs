@@ -46,6 +46,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // draws a ray from the "shootPoint" to the forward direction extending up to maximum distance
         Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward * maxDistance);
 
         //if mouse button 0 (left-click) is pressed down do code
@@ -95,6 +96,7 @@ public class Gun : MonoBehaviour
             //if raycasthit hit collider tag is equal to "Enemy"
             if (hit.collider.tag == "Enemy")
             {
+                //gets the enemy behavior component from hit transform gameobject
                 eB = hit.transform.gameObject.GetComponent<EnemyBehavior>();
                 //get the script EnemyBehavior component
                 eB.health--;
