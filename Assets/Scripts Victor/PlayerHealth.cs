@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
             if (health <= 0)//if the player has zero or less health points he dies
             {
                 print("player has no health");
-                //trigger end of game here
+                SceneManager.LoadScene(2);
             }
         }
     }
