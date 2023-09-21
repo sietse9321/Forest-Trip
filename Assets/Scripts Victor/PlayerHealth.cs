@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision) //if the player makes a collision run this code
     { //if the player makes a collision with the enemies AND enough time has passed since the last time the player took damage
-        if (collision.gameObject.CompareTag("Enemy")) 
+        if (collision.gameObject.CompareTag("Enemy") && lastHitWhen < Time.fixedTime) 
         {
             print("player lost health");
             health -= pointsPerHit;//player loses a certain amount of health
