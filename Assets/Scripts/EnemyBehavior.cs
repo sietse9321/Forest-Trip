@@ -16,13 +16,18 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] GameObject sound3;
     [SerializeField] GameObject sound4;
     [SerializeField] GameObject sound5;
+    [SerializeField] GameObject sound6;
+    [SerializeField] GameObject sound7;
     [SerializeField] GameObject death;
+    
 
     // Update is called once per frame
     void Awake()
     {
+       
         playerObject = GameObject.Find("henk 1 1");
         agent = gameObject.GetComponent<NavMeshAgent>();
+        
     }
 
     void FixedUpdate()
@@ -31,8 +36,8 @@ public class EnemyBehavior : MonoBehaviour
         agent.SetDestination(playerObject.transform.position);
         if (health <= 0)
         {
-            GameObject soundToDestroy = Instantiate(deathSound);
-            Destroy(soundToDestroy, 2f);
+            GameObject soundToDestroy = Instantiate(deathSound,transform.position, Quaternion.identity);
+            Destroy(soundToDestroy, 3f);
             GameObject explosion = Instantiate(death, transform.position, Quaternion.identity);
             Destroy(explosion, 3f);
             Destroy(gameObject);
@@ -40,7 +45,7 @@ public class EnemyBehavior : MonoBehaviour
     }
     void Sound()
     {
-        float randomNumber = Random.Range(0, 1750);
+        float randomNumber = Random.Range(0, 2000);
         switch (randomNumber)
         {
             case 1:
@@ -62,6 +67,14 @@ public class EnemyBehavior : MonoBehaviour
             case 5:
                 GameObject soundToDestroy5 = Instantiate(sound5, transform.position, Quaternion.identity);
                 Destroy(soundToDestroy5, 4f);
+                break;
+            case 6:
+                GameObject soundToDestroy6 = Instantiate(sound6, transform.position, Quaternion.identity);
+                Destroy(soundToDestroy6, 4f);
+                break;
+            case 7:
+                GameObject soundToDestroy7 = Instantiate(sound7, transform.position, Quaternion.identity);
+                Destroy(soundToDestroy7, 4f);
                 break;
         }
 
