@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    [SerializeField] GameObject playerObject;
+    [SerializeField] GameObject playerObject; 
     public float health = 3f;
     NavMeshAgent agent;
     [SerializeField] GameObject hurtSound;
@@ -21,26 +21,35 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] GameObject death;
     
 
-    // Update is called once per frame
     void Awake()
     {
+<<<<<<< HEAD
        
         playerObject = GameObject.Find("henk 1 1");
         agent = gameObject.GetComponent<NavMeshAgent>();
         
+=======
+        playerObject = GameObject.Find("henk 1 1");//find the game object of the player
+        agent = gameObject.GetComponent<NavMeshAgent>();//gets the navmesh component
+>>>>>>> main
     }
 
     void FixedUpdate()
     {
         Sound();
-        agent.SetDestination(playerObject.transform.position);
+        agent.SetDestination(playerObject.transform.position); //goes towards player trough navmesh
         if (health <= 0)
         {
+<<<<<<< HEAD
             GameObject soundToDestroy = Instantiate(deathSound,transform.position, Quaternion.identity);
             Destroy(soundToDestroy, 3f);
+=======
+            GameObject soundToDestroy = Instantiate(deathSound);//the sound the enemy makes when it dies
+            Destroy(soundToDestroy, 2f);
+>>>>>>> main
             GameObject explosion = Instantiate(death, transform.position, Quaternion.identity);
             Destroy(explosion, 3f);
-            Destroy(gameObject);
+            Destroy(gameObject);//the enemy gets removed from the scene
         }
     }
     void Sound()
