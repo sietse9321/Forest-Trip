@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public float playerHeight;
     bool grounded;
     public CapsuleCollider Size;
+    
+
 
     
 
@@ -32,7 +34,16 @@ public class Player : MonoBehaviour
         Size.height = 2.0f;
 
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown("space")) // als button jump wordt ingedrukt doe dit
+        {
 
+            Jump(); // roept een method op
+
+        }
+        
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -63,21 +74,17 @@ public class Player : MonoBehaviour
         {
             MovePlayer();
         }
-        if (Input.GetButton("Jump")) // als button jump wordt ingedrukt doe dit
-        {
-            Jump(); // roept een method op
-
-        }
+        
         
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = +15f;
+            speed = 15f;
         }
         else
         {
             speed = 10f;
 
-            if (speed >= 10f)
+            if (speed > 10f)
             {
                 speed = 10f;
             }
@@ -92,17 +99,22 @@ public class Player : MonoBehaviour
             Size.height = 2f;
         }
     }
+    
+
+
+
     public void Jump()
     {
         RaycastHit hit;
         // maakt de lijn aan die detecteerd waneer je de vloer raakt
         Debug.DrawRay(transform.position, Vector2.down * 1f, Color.green);
 
-        if (Physics.Raycast(transform.position, Vector2.down, out hit, 1.3f, Ground))
+        if (Physics.Raycast(transform.position, Vector2.down, out hit, 1.5f, Ground))
         {
-            rb.AddForce(transform.up * jumpforce * 0.5f, ForceMode.Force); //bepaald de jump hoogte
+            rb.AddForce(transform.up * jumpforce * 4f, ForceMode.Force); //bepaald de jump hoogte
              
         }
+
       
         
     }
