@@ -19,10 +19,12 @@ public class PlayerHealth : MonoBehaviour
     { //if the player makes a collision with the enemies AND enough time has passed since the last time the player took damage
         if (collision.CompareTag("enemy") && lastHitWhen + hitInterval > Time.fixedTime) 
         {
-            health -= pointsPerHit;
-            lastHitWhen += hitInterval;
-            if (health <= 0)
+            print("player lost health");
+            health -= pointsPerHit;//player loses a certain amount of health
+            lastHitWhen += hitInterval;//a new last time the player was hit is set
+            if (health <= 0)//if the player has zero or less health points he dies
             {
+                print("player has no health");
                 //trigger end of game here
             }
         }
