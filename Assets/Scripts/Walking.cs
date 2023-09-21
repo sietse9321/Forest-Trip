@@ -86,7 +86,7 @@ public class Walking : MonoBehaviour
         {
             CrawlStop();
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
            if(gn.magazine > 0)
             {
@@ -101,7 +101,10 @@ public class Walking : MonoBehaviour
         {
             reload.Play();
         }
-        
+        if(enemy.health == 2 || enemy.health == 1)
+        {
+            damage.Play();
+        }
         
         
 
